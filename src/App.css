@@ -1,38 +1,220 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #e0e7ff 0%, #f7f8fa 100%);
+  color: #222;
   min-height: 100vh;
+}
+.app-container {
+  max-width: 950px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: rgba(255,255,255,0.95);
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(60,60,120,0.12);
+}
+header, footer {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+header h1 {
+  margin: 0.5rem 0;
+  font-size: 2.3rem;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, #6366f1, #60a5fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+footer p {
+  color: #6b7280;
+  font-size: 1rem;
+}
+main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  justify-content: space-between;
+}
+.form-section, .list-section {
+  flex: 1 1 370px;
+  background: #f9fafb;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(99,102,241,0.07);
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  margin-bottom: 1rem;
+  transition: box-shadow 0.2s;
+}
+.form-section:hover, .list-section:hover {
+  box-shadow: 0 4px 24px rgba(99,102,241,0.13);
+}
+.student-form label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+  color: #6366f1;
+}
+.student-form input[type="text"],
+.student-form input[type="email"],
+.student-form select {
+  width: 100%;
+  padding: 0.6rem;
+  margin-bottom: 0.85rem;
+  border: 1.5px solid #a5b4fc;
+  border-radius: 6px;
+  font-size: 1.05rem;
+  background: #fff;
+  transition: border 0.2s;
+}
+.student-form input[type="text"]:focus,
+.student-form input[type="email"]:focus,
+.student-form select:focus {
+  border: 1.5px solid #6366f1;
+  outline: none;
+}
+.student-form input[type="file"] {
+  margin-bottom: 0.85rem;
+}
+.form-actions {
+  display: flex;
+  gap: 1rem;
+}
+.form-actions button {
+  padding: 0.55rem 1.4rem;
+  border: none;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #6366f1, #60a5fa);
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(99,102,241,0.08);
+  transition: background 0.2s, transform 0.1s;
+}
+.form-actions button[type="button"] {
+  background: #6c757d;
+  color: #fff;
+}
+.form-actions button:hover {
+  background: linear-gradient(90deg, #4f46e5, #2563eb);
+  transform: translateY(-2px) scale(1.03);
+}
+.error {
+  color: #d32f2f;
+  font-size: 0.98rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+.student-list {
   display: flex;
   flex-direction: column;
+  gap: 1.2rem;
+}
+.student-card {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background: #eef2ff;
+  border-radius: 10px;
+  padding: 1.1rem 1.2rem;
+  box-shadow: 0 1px 8px rgba(99,102,241,0.06);
+  gap: 1.5rem;
+  transition: box-shadow 0.2s, transform 0.1s;
+  position: relative;
 }
-
-.App-link {
-  color: #61dafb;
+.student-card:hover {
+  box-shadow: 0 4px 18px rgba(99,102,241,0.13);
+  transform: translateY(-2px) scale(1.01);
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.profile-img {
+  width: 82px;
+  height: 82px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #e0e0e0;
+  border: 2.5px solid #6366f1;
+  box-shadow: 0 2px 8px rgba(99,102,241,0.08);
+}
+.student-info {
+  flex: 1;
+}
+.student-info h3 {
+  margin: 0 0 0.2rem 0;
+  font-size: 1.25rem;
+  color: #3730a3;
+}
+.student-info p {
+  margin: 0.1rem 0;
+  color: #374151;
+  font-size: 1.05rem;
+}
+.student-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.student-actions button {
+  background: linear-gradient(90deg, #22d3ee, #6366f1);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 0.45rem 1rem;
+  cursor: pointer;
+  font-size: 0.98rem;
+  font-weight: 500;
+  box-shadow: 0 1px 4px rgba(99,102,241,0.08);
+  transition: background 0.2s, transform 0.1s;
+}
+.student-actions button:last-child {
+  background: linear-gradient(90deg, #f87171, #fbbf24);
+  color: #fff;
+}
+.student-actions button:hover {
+  opacity: 0.95;
+  transform: scale(1.04);
+}
+.loader {
+  text-align: center;
+  font-size: 1.25rem;
+  color: #6366f1;
+  margin: 1.5rem 0;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+.refetch-btn {
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, #fbbf24, #f87171);
+  color: #222;
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
+  font-size: 1.05rem;
+  font-weight: 500;
+  box-shadow: 0 1px 4px rgba(251,191,36,0.08);
+  transition: background 0.2s, transform 0.1s;
+}
+.refetch-btn:hover {
+  background: linear-gradient(90deg, #f59e42, #f87171);
+  transform: scale(1.04);
+}
+@media (max-width: 700px) {
+  main {
+    flex-direction: column;
+    gap: 1.2rem;
   }
-  to {
-    transform: rotate(360deg);
+  .form-section, .list-section {
+    padding: 1rem;
+  }
+  .student-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+  .profile-img {
+    width: 60px;
+    height: 60px;
+  }
+  .app-container {
+    padding: 0.5rem;
   }
 }
