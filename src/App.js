@@ -91,12 +91,11 @@ function App() {
         </section>
         <section className="list-section">
           <h2>All Students</h2>
-          <button onClick={handleRefetchCourses} className="refetch-btn">Refetch Courses (Event Loop Demo)</button>
           {loading ? <Loader /> : error ? <div className="error">{error}</div> : <StudentList students={students} onEdit={handleEdit} onDelete={handleDelete} />}
         </section>
       </main>
       <footer>
-        <p>Made with React | Candidate Project Assignment</p>
+        <p>Made by Deven Patil</p>
       </footer>
     </div>
   );
